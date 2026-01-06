@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flower Haven - Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: url('login bg.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(90, 24, 154, 0.2);
+            padding: 40px;
+            width: 380px;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(138, 79, 255, 0.3);
+        }
+
+        h2 {
+            background: linear-gradient(45deg, #8A4FFF, #5A189A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 2rem;
+        }
+
+        p {
+            color: #e0e0e0;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0 5px;
+            border: none;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(138, 79, 255, 0.2);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: rgba(138, 79, 255, 0.5);
+            box-shadow: 0 0 0 2px rgba(138, 79, 255, 0.2);
+        }
+
+        input.error-input {
+            border-color: #ff4d4d;
+            background-color: rgba(255, 77, 77, 0.1);
+        }
+
+        input.error-input:focus {
+            box-shadow: 0 0 0 2px rgba(255, 77, 77, 0.2);
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .error-message {
+            color: #ff9e9e;
+            font-size: 13px;
+            margin: 0 0 10px 5px;
+            display: none;
+            text-align: left;
+            background: rgba(255, 0, 0, 0.1);
+            padding: 5px 10px;
+            border-radius: 5px;
+            border-left: 3px solid #ff4d4d;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        button {
+            margin-top: 15px;
+            background: linear-gradient(to right, #8A4FFF, #5A189A);
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(90, 24, 154, 0.4);
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #5A189A, #3C0F66);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(90, 24, 154, 0.5);
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+
+        .forgot-password, .signup-text a {
+            color: #E0CCFF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 13px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .forgot-password:hover, .signup-text a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .donthave-text {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #dcdada;
+        }
+
+        .signup-text {
+            color: #E0CCFF;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .signup-text:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            width: 350px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease-in-out;
+            z-index: 100;
+        }
+
+        .modal h3 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .modal p {
+            color: #dcdada;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .modal button {
+            background: linear-gradient(to right, #8A4FFF, #5A189A);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal button:hover {
+            background: linear-gradient(to right, #5A189A, #3C0F66);
+        }
+
+        .forgot-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            width: 350px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease-in-out;
+            z-index: 100;
+        }
+        
+        .forgot-modal h3 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .forgot-modal p {
+            color: #dcdada;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .forgot-modal input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(138, 79, 255, 0.2);
+        }
+        
+        .forgot-modal .step {
+            display: none;
+        }
+        
+        .forgot-modal .step.active {
+            display: block;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .modal-buttons button {
+            flex: 1;
+            margin-top: 10px;
+        }
+
+        .forgot-error {
+            color: #ff9e9e;
+            font-size: 13px;
+            margin: -5px 0 10px 0;
+            display: none;
+            text-align: center;
+            background: rgba(255, 0, 0, 0.1);
+            padding: 5px 10px;
+            border-radius: 5px;
+            animation: fadeIn 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Flower Haven</h2>
+        <p>Welcome</p>
+        <form id="loginForm">
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email Address" required />
+                <p class="error-message" id="emailError">Please enter a valid email address</p>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password" required />
+                <p class="error-message" id="passwordError">Password is required</p>
+            </div>
+            <a href="#" class="forgot-password" onclick="openForgotModal()">Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+        <p class="donthave-text">Don't have an account? <a class="signup-text" href="signup.html">Sign Up</a></p>
+    </div>
+
+    <div id="successModal" class="modal">
+        <h3>Login Successful!</h3>
+        <p>Redirecting you to your dashboard...</p>
+        <button onclick="closeModal()">OK</button>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgotModal" class="forgot-modal">
+        <div class="step step1 active">
+            <h3>Forgot Password</h3>
+            <p>Enter your email address to reset your password</p>
+            <input type="email" id="recoveryEmail" placeholder="Your email address">
+            <p class="forgot-error" id="recoveryEmailError"></p>
+            <div class="modal-buttons">
+                <button onclick="closeForgotModal()">Cancel</button>
+                <button onclick="verifyEmail()">Continue</button>
+            </div>
+        </div>
+        
+        <div class="step step2">
+            <h3>Security Question</h3>
+            <p id="securityQuestionText"></p>
+            <input type="text" id="securityAnswer" placeholder="Your answer">
+            <p class="forgot-error" id="securityAnswerError"></p>
+            <div class="modal-buttons">
+                <button onclick="backToStep1()">Back</button>
+                <button onclick="verifyAnswer()">Verify</button>
+            </div>
+        </div>
+        
+        <div class="step step3">
+            <h3>Reset Password</h3>
+            <p>Enter your new password</p>
+            <input type="password" id="newPassword" placeholder="New password">
+            <input type="password" id="confirmNewPassword" placeholder="Confirm new password">
+            <p class="forgot-error" id="passwordResetError"></p>
+            <div class="modal-buttons">
+                <button onclick="backToStep2()">Back</button>
+                <button onclick="resetPassword()">Reset Password</button>
+            </div>
+        </div>
+        
+        <div class="step step4">
+            <h3>Success!</h3>
+            <p>Your password has been reset successfully.</p>
+            <button onclick="closeForgotModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Login Form Handling
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            
+            emailError.style.display = 'none';
+            passwordError.style.display = 'none';
+            email.classList.remove('error-input');
+            password.classList.remove('error-input');
+            
+            let isValid = true;
+            
+            // Validate email
+            if (!email.value || !email.value.includes('@') || !email.value.includes('.')) {
+                emailError.textContent = 'Please enter a valid email address';
+                emailError.style.display = 'block';
+                email.classList.add('error-input');
+                isValid = false;
+            }
+            
+            // Validate password
+            if (!password.value) {
+                passwordError.textContent = 'Password is required';
+                passwordError.style.display = 'block';
+                password.classList.add('error-input');
+                isValid = false;
+            }
+            
+            if (!isValid) return;
+            
+            const storedPassword = localStorage.getItem(email.value);
+            
+            if (storedPassword && storedPassword === password.value) {
+                showSuccessModal();
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 2000);
+            } else {
+                passwordError.textContent = 'Invalid email or password';
+                passwordError.style.display = 'block';
+                password.classList.add('error-input');
+            }
+        });
+
+        function showSuccessModal() {
+            document.getElementById('successModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+        
+        // Forgot Password Functions
+        function openForgotModal() {
+            document.getElementById('forgotModal').style.display = 'block';
+            showStep(1);
+
+            document.querySelectorAll('.forgot-error').forEach(el => {
+                el.style.display = 'none';
+            });
+        }
+        
+        function closeForgotModal() {
+            document.getElementById('forgotModal').style.display = 'none';
+            document.getElementById('recoveryEmail').value = '';
+            document.getElementById('securityAnswer').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmNewPassword').value = '';
+        }
+        
+        function showStep(stepNumber) {
+            document.querySelectorAll('.forgot-modal .step').forEach(step => {
+                step.classList.remove('active');
+            });
+            
+            document.querySelector(`.forgot-modal .step${stepNumber}`).classList.add('active');
+        }
+        
+        function verifyEmail() {
+            const email = document.getElementById('recoveryEmail').value.trim();
+            const errorElement = document.getElementById('recoveryEmailError');
+            
+            errorElement.style.display = 'none';
+            
+            if (!email || !email.includes('@') || !email.includes('.')) {
+                errorElement.textContent = 'Please enter a valid email address';
+                errorElement.style.display = 'block';
+                return;
+            }
+            
+            const storedPassword = localStorage.getItem(email);
+            const userData = localStorage.getItem(`user_${email}`);
+            
+            if (!storedPassword && !userData) {
+                errorElement.textContent = 'No account found with that email address';
+                errorElement.style.display = 'block';
+                return;
+            }
+            
+            try {
+                const user = userData ? JSON.parse(userData) : {
+                    securityQuestion: "What is your favorite flower?",
+                    securityAnswer: "rose"
+                };
+                document.getElementById('securityQuestionText').textContent = user.securityQuestion;
+                showStep(2);
+            } catch (e) {
+                errorElement.textContent = "Error processing your request";
+                errorElement.style.display = 'block';
+            }
+        }
+        
+        function verifyAnswer() {
+            const email = document.getElementById('recoveryEmail').value.trim();
+            const answer = document.getElementById('securityAnswer').value.trim();
+            const errorElement = document.getElementById('securityAnswerError');
+            
+            errorElement.style.display = 'none';
+            
+            if (!answer) {
+                errorElement.textContent = 'Please provide an answer';
+                errorElement.style.display = 'block';
+                return;
+            }
+            
+            const userData = localStorage.getItem(`user_${email}`) || '{}';
+            
+            try {
+                const user = JSON.parse(userData);
+                const correctAnswer = user.securityAnswer || "rose";
+                
+                if (answer.toLowerCase() !== correctAnswer.toLowerCase()) {
+                    errorElement.textContent = 'Incorrect answer. Please try again.';
+                    errorElement.style.display = 'block';
+                } else {
+                    showStep(3);
+                }
+            } catch (e) {
+                errorElement.textContent = "Error processing your request";
+                errorElement.style.display = 'block';
+            }
+        }
+        
+        function resetPassword() {
+            const email = document.getElementById('recoveryEmail').value.trim();
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmNewPassword').value;
+            const errorElement = document.getElementById('passwordResetError');
+            
+            errorElement.style.display = 'none';
+            
+            if (!newPassword || newPassword.length < 6) {
+                errorElement.textContent = 'Password must be at least 6 characters';
+                errorElement.style.display = 'block';
+                return;
+            }
+            
+            if (newPassword !== confirmPassword) {
+                errorElement.textContent = "Passwords don't match!";
+                errorElement.style.display = 'block';
+                return;
+            }
+            
+            localStorage.setItem(email, newPassword);
+            
+            // Update in user data if exists
+            const userData = localStorage.getItem(`user_${email}`);
+            if (userData) {
+                try {
+                    const user = JSON.parse(userData);
+                    user.password = newPassword;
+                    localStorage.setItem(`user_${email}`, JSON.stringify(user));
+                } catch (e) {
+                    console.error("Error updating user data:", e);
+                }
+            }
+            
+            showStep(4);
+        }
+        
+        function backToStep1() {
+            showStep(1);
+        }
+        
+        function backToStep2() {
+            showStep(2);
+        }
+
+        document.getElementById('email').addEventListener('input', function() {
+            const error = document.getElementById('emailError');
+            if (this.value.includes('@') && this.value.includes('.')) {
+                error.style.display = 'none';
+                this.classList.remove('error-input');
+            }
+        });
+
+        document.getElementById('password').addEventListener('input', function() {
+            const error = document.getElementById('passwordError');
+            if (this.value) {
+                error.style.display = 'none';
+                this.classList.remove('error-input');
+            }
+        });
+    </script>
+</body>
+</html>

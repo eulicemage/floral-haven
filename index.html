@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floral Haven - Artisanal Floral Designs for Every Occasion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #9c64a6;
+            --primary-light: #c18fcb;
+            --primary-dark: #7d4e86;
+            --accent: #ff8a8a;
+            --accent-dark: #ff6b6b;
+            --text: #333333;
+            --text-light: #777777;
+            --light: #f9f5fa;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.15);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .text-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .text-script {
+            font-family: 'Parisienne', cursive;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 8rem 0;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.96);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 0.8rem 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--primary-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .logo img {
+            width: 42px;
+            margin-right: 12px;
+        }
+        
+        .logo h1 {
+            font-family: 'Parisienne', cursive;
+            font-size: 2.2rem;
+            font-weight: 500;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .signupbtn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 2.2rem;
+            background-color: transparent;
+            color: var(--light);
+            border: 2px solid var(--primary-dark);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .signupbtn:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 2.2rem;
+            background-color: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary-dark)
+
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-icon {
+            margin-left: 8px;
+            font-size: 1.1rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            background: linear-gradient(135deg, rgba(156, 100, 166, 0.85) 0%, rgba(156, 100, 166, 0.7) 100%), 
+                        url('https://images.unsplash.com/photo-1526397751294-331021109fbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--light), transparent);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            z-index: 2;
+            padding: 0 2rem;
+        }
+        
+        .hero h2 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 1s ease-out;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease-out;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        
+        .section-title {
+            color: var(--primary-dark);
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+        
+        .about {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(156, 100, 166, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transform: rotate(-2deg);
+            transition: var(--transition);
+        }
+        
+        .about-image:hover {
+            transform: rotate(0deg);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .about-text {
+            padding-left: 2rem;
+        }
+        
+        .about-text h3 {
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-signature {
+            font-family: 'Parisienne', cursive;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-top: 1.5rem;
+        }
+        
+        .features {
+            background-color: var(--white);
+            position: relative;
+        }
+        
+        .features::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--light), transparent);
+            z-index: 1;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .feature {
+            padding: 2.5rem;
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+            font-size: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .feature h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+        }
+        
+        .gallery {
+            background-color: var(--light);
+            position: relative;
+        }
+        
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+            height: 320px;
+            cursor: pointer;
+        }
+        
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+        }
+        
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            color: var(--white);
+            z-index: 2;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            bottom: 0;
+        }
+        
+        .gallery-caption h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-caption p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .testimonials {
+            background-color: var(--white);
+            position: relative;
+        }
+        
+        .testimonial-slider {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            background-color: var(--light);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            margin: 0 1.5rem;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            position: relative;
+        }
+        
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            color: var(--primary-light);
+            opacity: 0.2;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            border: 3px solid var(--primary-light);
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-name {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.3rem;
+        }
+        
+        .author-title {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, rgba(156, 100, 166, 0.9) 0%, rgba(156, 100, 166, 0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1459156212016-c812468e2115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2104&q=80') no-repeat center center;
+            background-size: cover;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+        
+        .cta-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .cta-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+        
+        .cta-form button {
+            padding: 1rem 2rem;
+            background-color: var(--accent);
+            color: var(--white);
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .cta-form button:hover {
+            background-color: var(--accent-dark);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 5rem 0 2rem;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--white), transparent);
+            opacity: 0.1;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo img {
+            width: 40px;
+            margin-right: 12px;
+        }
+        
+        .footer-logo h2 {
+            font-family: 'Parisienne', cursive;
+            font-size: 2.2rem;
+            font-weight: 500;
+        }
+        
+        .footer-about p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .footer-links a::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: var(--transition);
+            color: var(--accent);
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 2rem;
+        }
+        
+        .footer-links a:hover::before {
+            opacity: 1;
+            left: 0.5rem;
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        
+        .footer-contact i {
+            margin-right: 0.8rem;
+            color: var(--accent);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            section {
+                padding: 6rem 0;
+            }
+            
+            .hero h2 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .about-image {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .about-text {
+                padding-left: 0;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .nav-links {
+                gap: 1.5rem;
+            }
+            
+            .hero {
+                min-height: 700px;
+            }
+            
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+            
+            .cta-form {
+                flex-direction: column;
+                border-radius: var(--radius-md);
+            }
+            
+            .cta-form input,
+            .cta-form button {
+                width: 100%;
+                border-radius: 0;
+            }
+            
+            .cta-form input {
+                border-bottom: 1px solid #eee;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-links h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-contact p {
+                justify-content: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <h1>🌸 Floral Haven</h1>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2 class="text-script">Artisanal Floral Designs</h2>
+            <h2>Elevate Every Moment with Nature's Beauty</h2>
+            <p>Handcrafted arrangements using the freshest seasonal blooms, delivered with care to your doorstep</p>
+            <div class="hero-buttons">
+                <a href="#gallery" class="btn btn-outline">Explore Collections</a>
+                <a href="signup.html" class="btn btn-primary">Order Now <span class="btn-icon">→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-subtitle">Where passion for flowers meets artistic expression</p>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1444201983204-c43cbd584d93?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Floral Haven Team">
+                </div>
+                <div class="about-text">
+                    <h3>Crafting Floral Magic Since 2015</h3>
+                    <p>Floral Haven began as a small boutique flower shop with a big dream - to transform the way people experience flowers. What started as a passion project between two floral designers has blossomed into a beloved destination for floral artistry.</p>
+                    <p>Our philosophy is simple: flowers should be as unique as the people who receive them. We reject the one-size-fits-all approach, instead creating custom designs that tell your story through color, texture, and seasonal blooms.</p>
+                    <p>Every arrangement is handcrafted by our team of master florists who combine traditional techniques with contemporary design. We work directly with local growers and sustainable farms to ensure our flowers are always fresh and ethically sourced.</p>
+                    <div class="about-signature">Amelia & Sophie</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="services">
+        <div class="container">
+            <h2 class="section-title">Why Choose Floral Haven</h2>
+            <p class="section-subtitle">We go beyond just delivering flowers - we create memorable experiences</p>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">✿</div>
+                    <h3>Farm-Fresh Blooms</h3>
+                    <p>Our direct relationships with growers mean your flowers are cut just days before delivery, lasting up to 2 weeks longer than typical arrangements.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✧</div>
+                    <h3>Signature Designs</h3>
+                    <p>Each arrangement is a unique work of art, crafted by our award-winning designers using seasonal flowers at their peak.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">♡</div>
+                    <h3>Thoughtful Service</h3>
+                    <p>From handwritten cards to special delivery instructions, we handle every detail to make your gift unforgettable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="gallery-header">
+                <h2 class="section-title">Our Collections</h2>
+                <p class="section-subtitle">Explore our signature floral designs</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Spring Garden Bouquet">
+                    <div class="gallery-caption">
+                        <h4>Spring Garden</h4>
+                        <p>Seasonal Collection</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Classic Romance Bouquet">
+                    <div class="gallery-caption">
+                        <h4>Classic Romance</h4>
+                        <p>Year-Round Favorite</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Modern Elegance Arrangement">
+                    <div class="gallery-caption">
+                        <h4>Modern Elegance</h4>
+                        <p>Contemporary Design</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2048&q=80" alt="Wedding Centerpiece">
+                    <div class="gallery-caption">
+                        <h4>Bridal Bliss</h4>
+                        <p>Wedding Collection</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1444201983204-c43cbd584d93?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Tropical Paradise">
+                    <div class="gallery-caption">
+                        <h4>Tropical Paradise</h4>
+                        <p>Exotic Collection</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Rustic Charm">
+                    <div class="gallery-caption">
+                        <h4>Rustic Charm</h4>
+                        <p>Country Garden Style</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Client Love</h2>
+            <p class="section-subtitle">Don't just take our word for it</p>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p class="testimonial-content">Floral Haven created the most breathtaking arrangements for our wedding. They perfectly captured our vision and went above and beyond to make our day special. The flowers were still fresh a week after the event!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Sarah Johnson">
+                        </div>
+                        <div class="author-name">Sarah Johnson</div>
+                        <div class="author-title">Wedding Planner</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience Floral Magic?</h2>
+                <p>Sign up today and receive 15% off your first order</p>  
+                <a href="signup.html" class="signupbtn">Sign Up</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <h2>Floral Haven</h2>
+                    </div>
+                    <p>Bringing nature's beauty to your special moments through artisan floral designs.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>123 Bloom Street, Garden City</p>
+                    <p><i class="fas fa-phone"></i> (+639) 273124821</p>
+                    <p><i class="fas fa-envelope"></i>hello@floralhaven.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2023 Floral Haven. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+    
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
